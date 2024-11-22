@@ -13,7 +13,7 @@ function Header() {
         <Container fluid data-bs-theme="dark">
           <Navbar.Brand href="#home">
             <img
-              src="/src/assets/react.svg"
+              src="/src/assets/logo.png"
               width="60"
               height="60"
               className="d-inline-block align-top"
