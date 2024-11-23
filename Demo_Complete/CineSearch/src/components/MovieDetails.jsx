@@ -1,45 +1,53 @@
-import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 
 const MovieDetails = () => {
   const { id } = useParams();
-  const [movie, setMovie] = useState(null);
   const navigate = useNavigate();
+  const [movie, setMovie] = useState(null);
+  const apiKey = "e4be2d8d86fbfd83ce907eca1f0262ab";
 
   useEffect(() => {
-    const getMovieDetails = async () => {
-      const url = `http://www.omdbapi.com/?i=${id}&apikey=263d22d8`;
-
-      const response = await fetch(url);
-      const responseJson = await response.json();
-
-      if (responseJson) {
-        setMovie(responseJson);
+    const fetchMovieDetails = async () => {
+      try {
+        const url = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}`;
+        const response = await fetch(url);
+        const data = await response.json();
+        setMovie(data);
+      } catch (error) {
+        console.error('Error fetching movie details:', error);
       }
     };
 
-    getMovieDetails();
+    fetchMovieDetails();
   }, [id]);
 
+  if (!movie) return <div>Loading...</div>;
+
   return (
-    <div className="container">
-      <button onClick={() => navigate(-1)} className="btn btn-secondary mb-3">
+    <div className="container mt-4">
+      <button onClick={() => navigate(-1)} className="btn btn-primary mb-3">
         Back
       </button>
-      {movie ? (
-        <div>
-          <h1>{movie.Title}</h1>
-          <img src={movie.Poster} alt={movie.Title} />
-          <p>{movie.Plot}</p>
-          <p><strong>Director:</strong> {movie.Director}</p>
-          <p><strong>Actors:</strong> {movie.Actors}</p>
-          <p><strong>Genre:</strong> {movie.Genre}</p>
-          <p><strong>Released:</strong> {movie.Released}</p>
-          <p><strong>IMDB Rating:</strong> {movie.imdbRating}</p>
+      <div className="row">
+        <div className="col-md-4">
+          <img 
+            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+            alt={movie.title}
+            className="img-fluid"
+          />
         </div>
-      ) : (
-        <p>Loading...</p>
-      )}
+        <div className="col-md-8">
+          <h1>{movie.title}</h1>
+          <p className="lead">{movie.overview}</p>
+          <div className="mt-3">
+            <p><strong>Release Date:</strong> {movie.release_date}</p>
+            <p><strong>Rating:</strong> {movie.vote_average}/10</p>
+            <p><strong>Runtime:</strong> {movie.runtime} minutes</p>
+            <p><strong>Genres:</strong> {movie.genres?.map(g => g.name).join(', ')}</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

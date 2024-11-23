@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import MovieList from "./components/MovieList";
@@ -25,13 +25,13 @@ const App = () => {
       setError(null);
       const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${searchValue}`;
       const response = await fetch(url);
-      if (!response.ok) throw new Error('Search failed');
+      if (!response.ok) throw new Error("Search failed");
       const responseJson = await response.json();
       if (responseJson.results) {
         setSearchResults(responseJson.results);
       }
     } catch (err) {
-      setError('Failed to fetch search results');
+      setError("Failed to fetch search results");
       setSearchResults([]);
     } finally {
       setIsLoading(false);
@@ -44,13 +44,13 @@ const App = () => {
       setError(null);
       const url = `https://api.themoviedb.org/3/movie/popular?language=en-US&page=1&api_key=${apiKey}`;
       const response = await fetch(url);
-      if (!response.ok) throw new Error('Failed to fetch trending movies');
+      if (!response.ok) throw new Error("Failed to fetch trending movies");
       const responseJson = await response.json();
       if (responseJson.results) {
         setTrendingMovies(responseJson.results);
       }
     } catch (err) {
-      setError('Failed to fetch trending movies');
+      setError("Failed to fetch trending movies");
       setTrendingMovies([]);
     } finally {
       setIsLoading(false);
@@ -107,7 +107,13 @@ const App = () => {
           element={
             <div className="container-fluid movie-app">
               <div className="row d-flex align-items-center mt-4 mb-4">
-                <SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />
+                <Link to="/">
+                  <img className="" src="/src/assets/logo.png" alt="logo" />
+                </Link>
+                <SearchBox
+                  searchValue={searchValue}
+                  setSearchValue={setSearchValue}
+                />
               </div>
 
               {error && (
