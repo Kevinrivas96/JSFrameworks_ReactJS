@@ -9,7 +9,7 @@ const MovieList = (props) => {
       {props.movies.map((movie, index) => (
         <div className='image-container d-flex justify-content-start m-3' key={movie.id}>
           <Link to={`/movie/${movie.id}`}>
-            <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
+            <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} alt={movie.title} />
           </Link>
           <div 
             onClick={() => props.handleFavouritesClick(movie)}

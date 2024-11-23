@@ -34,3 +34,12 @@ body {
 	padding: 20px;
 	text-align: center;
 }
+
+.search-container {
+  width: 100%;
+  max-width: 600px;
+}
+
+.search-box {
+  width: 100%;
+}

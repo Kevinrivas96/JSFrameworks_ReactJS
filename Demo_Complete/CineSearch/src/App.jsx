@@ -105,15 +105,24 @@ const App = () => {
         <Route
           path="/"
           element={
-            <div className="container-fluid movie-app">
-              <div className="row d-flex align-items-center mt-4 mb-4">
-                <Link to="/">
-                  <img className="" src="/src/assets/logo.png" alt="logo" />
-                </Link>
-                <SearchBox
-                  searchValue={searchValue}
-                  setSearchValue={setSearchValue}
-                />
+            <div className="movie-app">
+              <div className="container-fluid bg-dark py-2 px-5">
+                <div className="d-flex justify-content-between align-items-center">
+                  <Link to="/" className="navbar-brand">
+                    <img
+                      className="logo"
+                      src="/src/assets/logo.png"
+                      alt="logo"
+                      width="100"
+                    />
+                  </Link>
+                  <div className="search-container">
+                    <SearchBox
+                      searchValue={searchValue}
+                      setSearchValue={setSearchValue}
+                    />
+                  </div>
+                </div>
               </div>
 
               {error && (
