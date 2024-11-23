@@ -1,6 +1,24 @@
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
 body {
   background: #141414;
   color: #ffffff;
+}
+
+h1,
+h2,
+h3 {
+  font-size: 2.5rem;
+  margin: 0;
+  font-family: "Lexend Deca", sans-serif;
+}
+
+p {
+  font-size: 1.5rem;
+  font-family: "Poppins", sans-serif;
 }
 
 .movie-app > .row-custom {
@@ -54,6 +72,11 @@ body {
   padding: 20px 0;
   scroll-behavior: smooth;
 }
+.fav-icon {
+  margin-left: -0.3em;
+  padding-top: 0.2em;
+  color: #dd0000;
+}
 
 .scroll-button {
   position: absolute;
@@ -67,7 +90,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: #f5c518;
   cursor: pointer;
   z-index: 1;
   transition: background 0.3s;
@@ -82,5 +105,5 @@ body {
 }
 
 .scroll-button.right {
-  right: 0;
+  right: 2px;
 }

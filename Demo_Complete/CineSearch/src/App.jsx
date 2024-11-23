@@ -139,9 +139,9 @@ const App = () => {
                 </div>
               )}
 
-              {searchValue && searchResults.length > 0 && (
+              {searchValue.trim() && searchResults.length > 0 && (
                 <>
-                  <div className="row d-flex align-items-center mt-4 mb-4">
+                  <div className="row d-flex align-items-center mt-4">
                     <MovieListHeading heading="Search Results" />
                   </div>
                   <div className="row-custom d-flex">
@@ -154,7 +154,7 @@ const App = () => {
                 </>
               )}
 
-              <div className="row d-flex align-items-center mt-4 mb-4">
+              <div className="row d-flex align-items-center mt-4">
                 <MovieListHeading heading="Trending Movies" />
               </div>
               <div className="row-custom d-flex">
@@ -167,7 +167,7 @@ const App = () => {
 
               {favourites.length > 0 && (
                 <>
-                  <div className="row d-flex align-items-center mt-4 mb-4">
+                  <div className="row d-flex align-items-center mt-4">
                     <MovieListHeading heading="Favourites" />
                   </div>
                   <div className="row-custom d-flex">
