@@ -89,7 +89,7 @@ const App = () => {
     const movieExists = favourites.find(
       (favourite) => favourite.id === movie.id
     );
-  
+
     if (!movieExists) {
       const newFavouriteList = [movie, ...favourites];
       setFavourites(newFavouriteList);
@@ -117,8 +117,8 @@ const App = () => {
   return (
     <Router>
       <div className="movie-app">
-        <Header 
-          searchValue={searchValue} 
+        <Header
+          searchValue={searchValue}
           onSearchChange={handleSearch}
           onClearSearch={clearSearch}
         />
@@ -134,10 +134,11 @@ const App = () => {
                 )}
 
                 {isLoading && (
-                  <div className="d-flex justify-content-center">
-                    <div className="spinner-border" role="status">
-                      <span className="visually-hidden">Loading...</span>
-                    </div>
+                  <div
+                    className="position-fixed translate-middle spinner"
+                    style={{ zIndex: 1000 }}
+                  >
+                    <div className="spinner-border spinner-element" role="status"></div>
                   </div>
                 )}
 
@@ -184,14 +185,14 @@ const App = () => {
               </>
             }
           />
-          <Route 
-            path="/movie/:id" 
+          <Route
+            path="/movie/:id"
             element={
-              <MovieDetails 
+              <MovieDetails
                 apiKey={apiKey}
                 addFavouriteMovie={addFavouriteMovie}
               />
-            } 
+            }
           />
         </Routes>
       </div>

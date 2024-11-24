@@ -33,8 +33,13 @@ const MovieList = (props) => {
           >
             <Link to={`/movie/${movie.id}`}>
               <img
-                src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
+                src={movie.poster_path 
+                  ? `https://image.tmdb.org/t/p/w300${movie.poster_path}`
+                  : '/src/assets/no-image.png'}
                 alt={movie.title}
+                onError={(e) => {
+                  e.target.src = '/src/assets/no-image.png';
+                }}
               />
             </Link>
             <div

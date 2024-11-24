@@ -22,16 +22,31 @@ const MovieDetails = () => {
     fetchMovieDetails();
   }, [id]);
 
-  if (!movie) return <div>Loading...</div>;
+  if (!movie)
+    return (
+      <div
+        className="position-fixed translate-middle spinner"
+        style={{ zIndex: 1000 }}
+      >
+        <div className="spinner-border spinner-element" role="status"></div>
+      </div>
+    );
 
   return (
     <div className="container mt-5">
       <div className="row">
         <div className="col-md-4">
           <img
-            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+            src={
+              movie.poster_path
+                ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                : "/src/assets/no-image.png"
+            }
             alt={movie.title}
             className="img-fluid"
+            onError={(e) => {
+              e.target.src = "/src/assets/no-image.png";
+            }}
           />
         </div>
         <div className="col-md-8">
@@ -51,10 +66,7 @@ const MovieDetails = () => {
               <strong>Genres:</strong>{" "}
               {movie.genres?.map((g) => g.name).join(", ")}
             </p>
-            <button
-              onClick={() => navigate(-1)}
-              className="back-button"
-            >
+            <button onClick={() => navigate(-1)} className="back-button">
               Back
             </button>
           </div>

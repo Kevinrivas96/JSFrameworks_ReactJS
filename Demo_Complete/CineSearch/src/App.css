@@ -17,7 +17,8 @@ h3 {
   font-family: "Lexend Deca", sans-serif;
 }
 
-p {
+p,
+input {
   font-size: 1.5rem;
   font-family: "Poppins", sans-serif;
 }
@@ -30,6 +31,12 @@ p {
 .image-container {
   position: relative;
   transition: transform 0.2s;
+}
+
+.image-container img {
+  width: 300px;
+  height: auto;
+  object-fit: cover;
 }
 
 .image-container:hover {
@@ -60,6 +67,15 @@ p {
 
 .search-box {
   width: 100%;
+}
+
+.spinner {
+  left: 50%;
+  top: 17.5%;
+}
+
+.spinner-element {
+  color: #f5c518;
 }
 
 .position-relative {
