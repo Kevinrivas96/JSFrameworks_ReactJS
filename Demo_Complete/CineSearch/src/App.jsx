@@ -4,11 +4,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import MovieList from "./components/MovieList";
 import MovieListHeading from "./components/MovieListHeading";
-import SearchBox from "./components/SearchBox";
 import AddFavourites from "./components/AddFavourites";
 import RemoveFavourites from "./components/RemoveFavourites";
 import MovieDetails from "./components/MovieDetails";
-import Header from "./components/Header"; // Import Header
+import Header from "./components/Header";
 
 const App = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
@@ -86,10 +85,16 @@ const App = () => {
     localStorage.setItem("react-movie-app-favourites", JSON.stringify(items));
   };
 
-  const addFavouriteMovie = (movie) => {
-    const newFavouriteList = [...favourites, movie];
-    setFavourites(newFavouriteList);
-    saveToLocalStorage(newFavouriteList);
+    const addFavouriteMovie = (movie) => {
+    const movieExists = favourites.find(
+      (favourite) => favourite.id === movie.id
+    );
+  
+    if (!movieExists) {
+      const newFavouriteList = [movie, ...favourites]; // Add new movie at start
+      setFavourites(newFavouriteList);
+      saveToLocalStorage(newFavouriteList);
+    }
   };
 
   const removeFavouriteMovie = (movie) => {
