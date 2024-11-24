@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -15,7 +15,7 @@ const MovieDetails = () => {
         const data = await response.json();
         setMovie(data);
       } catch (error) {
-        console.error('Error fetching movie details:', error);
+        console.error("Error fetching movie details:", error);
       }
     };
 
@@ -25,13 +25,10 @@ const MovieDetails = () => {
   if (!movie) return <div>Loading...</div>;
 
   return (
-    <div className="container mt-4">
-      <button onClick={() => navigate(-1)} className="btn btn-primary mb-3">
-        Back
-      </button>
+    <div className="container mt-5">
       <div className="row">
         <div className="col-md-4">
-          <img 
+          <img
             src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
             alt={movie.title}
             className="img-fluid"
@@ -41,10 +38,25 @@ const MovieDetails = () => {
           <h1>{movie.title}</h1>
           <p className="lead">{movie.overview}</p>
           <div className="mt-3">
-            <p><strong>Release Date:</strong> {movie.release_date}</p>
-            <p><strong>Rating:</strong> {movie.vote_average}/10</p>
-            <p><strong>Runtime:</strong> {movie.runtime} minutes</p>
-            <p><strong>Genres:</strong> {movie.genres?.map(g => g.name).join(', ')}</p>
+            <p>
+              <strong>Release Date:</strong> {movie.release_date}
+            </p>
+            <p>
+              <strong>Rating:</strong> {movie.vote_average}/10
+            </p>
+            <p>
+              <strong>Runtime:</strong> {movie.runtime} minutes
+            </p>
+            <p>
+              <strong>Genres:</strong>{" "}
+              {movie.genres?.map((g) => g.name).join(", ")}
+            </p>
+            <button
+              onClick={() => navigate(-1)}
+              className="back-button"
+            >
+              Back
+            </button>
           </div>
         </div>
       </div>

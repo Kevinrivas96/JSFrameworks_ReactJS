@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import SearchBox from "./SearchBox";
 
-const Header = ({ searchValue, onSearchChange }) => {
+const Header = ({ searchValue, onSearchChange, onClearSearch }) => {
   const navigate = useNavigate();
 
   const handleSearchChange = (value) => {
@@ -12,10 +12,14 @@ const Header = ({ searchValue, onSearchChange }) => {
     }
   };
 
+  const handleLogoClick = () => {
+    onClearSearch();
+  };
+
   return (
     <div className="container-fluid bg-dark py-2 px-5">
       <div className="d-flex justify-content-between align-items-center">
-        <Link to="/" className="navbar-brand">
+        <Link to="/" className="navbar-brand" onClick={handleLogoClick}>
           <img
             className="logo"
             src="/src/assets/logo.png"

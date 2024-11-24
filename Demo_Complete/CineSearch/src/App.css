@@ -108,3 +108,20 @@ p {
 .scroll-button.right {
   right: 2px;
 }
+
+.back-button {
+  width: 5em;
+  background: #f5c518;
+  border: none;
+  border-radius: 4px;
+  font-family: "Lexend Deca", sans-serif;
+  font-weight: bold;
+  padding: 10px;
+  color: #141414;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.back-button:hover {
+  background: #d3a910;
+}

@@ -85,13 +85,13 @@ const App = () => {
     localStorage.setItem("react-movie-app-favourites", JSON.stringify(items));
   };
 
-    const addFavouriteMovie = (movie) => {
+  const addFavouriteMovie = (movie) => {
     const movieExists = favourites.find(
       (favourite) => favourite.id === movie.id
     );
   
     if (!movieExists) {
-      const newFavouriteList = [movie, ...favourites]; // Add new movie at start
+      const newFavouriteList = [movie, ...favourites];
       setFavourites(newFavouriteList);
       saveToLocalStorage(newFavouriteList);
     }
@@ -109,10 +109,19 @@ const App = () => {
     setSearchValue(value);
   };
 
+  const clearSearch = () => {
+    setSearchValue("");
+    setSearchResults([]);
+  };
+
   return (
     <Router>
       <div className="movie-app">
-        <Header searchValue={searchValue} onSearchChange={handleSearch} />
+        <Header 
+          searchValue={searchValue} 
+          onSearchChange={handleSearch}
+          onClearSearch={clearSearch}
+        />
         <Routes>
           <Route
             path="/"
