@@ -8,6 +8,7 @@ import AddFavourites from "./components/AddFavourites";
 import RemoveFavourites from "./components/RemoveFavourites";
 import MovieDetails from "./components/MovieDetails";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 const App = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
@@ -195,6 +196,7 @@ const App = () => {
             }
           />
         </Routes>
+        <Footer />
       </div>
     </Router>
   );

@@ -141,3 +141,10 @@ input {
 .back-button:hover {
   background: #d3a910;
 }
+
+.name-pill {
+  background: #f5c518;
+  color: #141414;
+  border-radius: 20px;
+  font-size: 1rem;
+}
