@@ -9,12 +9,9 @@ Methodology:
 
 STEP 1: Install dependencies
 
-    navigate to the main project in your terminal "CineSearch_Demo".
+    Navigate to the main project in your terminal "CineSearch_Demo".
 
-    npm install
-    npm i react-router-dom 
-    npm i react-icons
-    npm i react-bootstrap
+    npm i
 
     the command:
     npm run dev
@@ -22,9 +19,9 @@ STEP 1: Install dependencies
 
     Shortcut: o + enter to open the browser to this port!
 
-Step 2: Create a new component
+Step 2: Create a new component MovieListHeading.jsx
 
-    MovieListHeading.jsx will highlight the sections of videos to the user.
+    This component will highlight the sections of videos to the user.
 
     1. Import react as a dependency;
 
@@ -43,10 +40,26 @@ Step 3: Implement new component
 
 Step 4: Create MovieDetails.jsx
 
-  ...
+    This component will be responsible for displaying information about movies to the user when they show interest.
+
+    1. import React with useEffect and useState from react and
+        useParams and useNavigate from react-router-dom
+
+    2. instantiate variables
+        useParams() to obtain the id of this movie
+        useNavigate() for creating a back button within content
+        setMovie through useState() to obtain data for this movie
+    
+    3. useEffect() to call an asynchronous function upon rendering of the page. gather the specific data from the
+
+    4. Build a container to hold the information for the movie 
+
+
+
 Step 5: Link to new route
-
- ...
+    1. Within MovieList.jsx encapsulate the image with a Link
+        that includes a common prefix "/movie/" and a unique identifier at the end.
+ 
 Step 6: Handle new route
+    Create a new Route in App.jsx to handle the prefix/identifier that will utilize the new component.
 
-...
