@@ -1,8 +1,42 @@
-# React + Vite
+# CineSearch - Movie Search Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+CineSearch is a modern web application built with React that allows users to discover, search, and manage their favorite movies. The platform integrates with The Movie Database (TMDB) API to provide up-to-date movie information.
 
-Currently, two official plugins are available:
+## Features
+- **Movie Search**: Real-time search functionality for finding movies
+- **Trending Movies**: Display of current popular movies
+- **Favorites Management**: Add/remove movies to personal favorites list
+- **Movie Details**: Detailed view for each movie including:
+  - Title
+  - Plot
+  - Release date
+  - Rating
+  - Runtime
+  - Genres
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technical Stack
+- **Frontend**: React.js
+- **Styling**: Bootstrap & Custom CSS
+- **API**: TMDB API
+- **State Management**: React Hooks
+- **Routing**: React Router
+- **Data Persistence**: LocalStorage for favorites
+
+## Usage
+- **Search**: Type in the search bar to find movies
+- **Browse**: Scroll through trending movies using arrow buttons
+- **Favorites**: Click heart icon to add/remove from favorites
+- **Details**: Click on any movie poster to view detailed information
+
+## Team
+- [Alex](https://github.com/feldmansasha)
+- [Deep](https://github.com/DeepBwas)
+- [Kevin](https://github.com/Kevinrivas96)
+- [Richard](https://github.com/Richard-LeBlanc)
+
+## Attribution
+Powered by [The Movie Database (TMDB)](https://www.themoviedb.org/)
+
+## License
+© 2024 CineSearch. All rights reserved.
